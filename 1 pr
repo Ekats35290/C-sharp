@@ -98,10 +98,102 @@ namespace С__
     }
 }
 
+//6
+using System;
+
+namespace С__
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("a = ");
+            double a = double.Parse(Console.ReadLine());
+            Console.Write("b = ");
+            double b = double.Parse(Console.ReadLine());
+            Console.Write("c = ");
+            double c = double.Parse(Console.ReadLine());
+            Console.WriteLine("({0:.##} + {1:.##}) + {2:.##} = {0:.##} + ({1:.##} + {2:.##})", a, b, c); 
+        }
+    }
+}
+
+//7
+
+using System;
+
+namespace С__
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Номинал купюры = ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("Количество купюр = ");
+            int b = int.Parse(Console.ReadLine());
+            Console.WriteLine("Сумма денeг = {0:C}", a* b); 
+        }
+    }
+}
+
+//8
+
+using System;
+
+namespace С__
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите сумму вклада = ");
+            double a = double.Parse(Console.ReadLine());
+            Console.Write("Введите процент по вкладу = ");
+            double b = double.Parse(Console.ReadLine());
+            Console.WriteLine("Через год начислят = {0:C}", a * b * 0.01); 
+        }
+    }
+}
+
+//9
+
+using System;
+
+namespace С__
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите сумму вклада = ");
+            double a = double.Parse(Console.ReadLine());
+            Console.Write("Введите процент по вкладу = ");
+            double b = double.Parse(Console.ReadLine());
+            Console.WriteLine("Через сумма на вкладе = {0:C}", a * b * 0.01 + a); 
+        }
+    }
+}
+
+//10
 
 
+using System;
 
-
+namespace С__
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Как тебя зовут? ");
+            string a = Console.ReadLine();
+            Console.Write("Сколько тебе лет? ");
+            int b = int.Parse(Console.ReadLine());
+            Console.WriteLine("{0}, ты родился в {1} году.", a, 2021 - b); 
+        }
+    }
+}
 
 
 
