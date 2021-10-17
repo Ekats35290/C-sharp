@@ -1,0 +1,21 @@
+using System;
+
+namespace С__
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {
+            Console.Write("Enter A ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("Enter B ");
+            int b = int.Parse(Console.ReadLine());
+            Console.Write("Enter h ");
+            int h = int.Parse(Console.ReadLine());
+            for (int i = a; i <= b; i += h)
+            {
+                if (i > 0) {Console.Write("{0} ", i); }
+            }
+        }
+    }
+}
