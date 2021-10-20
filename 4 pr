@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            double s = 0;
+            int k = 0;
+            for (int i = 1; i <= Math.Sqrt(n); i++)
+            {
+                if (n % i == 0)
+                {
+                    if (i * i == n)
+                    {
+                        k++;
+                        s += i;
+                    }
+                    else
+                    {
+                        k += 2;
+                        s += i;
+                        s += n / i;
+                    }
+
+                }
+            }
+            double ans = s / k;
+            Console.WriteLine("{0:.###}", ans);
+        }
+        
+    }
+}
