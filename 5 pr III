@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static double func(double x, int n)
+        {
+            double res = 0;
+            if (n == 0)
+            {
+                res = 1;
+            }
+            if (n > 0)
+            {
+                res = func(x, n - 1) * x;
+            }
+            if (n < 0)
+            {
+                res = 1 / func(x, Math.Abs(n));
+            }
+            return res;
+        }
+
+
+        static void Main(string[] args)
+        {
+            Console.Write("X = ");
+            double x = double.Parse(Console.ReadLine());
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine("{0}", func(x, n));
+        }
+
+    }
+}
