@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void func(int x)
+        {
+            if (x > 0)
+            {
+                Console.Write("{0} ", x % 10);
+                func(x / 10);
+            }
+        }
+
+
+        static void Main(string[] args)
+        {
+            Console.Write("A = ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("B = ");
+            int b = int.Parse(Console.ReadLine());
+            for (int i = a; i <= b; i++)
+            {
+                func(i);
+                Console.WriteLine();
+            }
+        }
+
+    }
+}
