@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static int sum(int x) 
+        {
+            int s = 0;
+            while (x > 0)
+            {
+                int tmp = x % 10;
+                if (tmp % 2 == 0)
+                {
+                    s += tmp;
+                }
+                x /= 10;
+            }
+            return s;
+        }
+
+
+        static void Main(string[] args)
+        {
+            Console.Write("Choose the problem: a, b, c or d    ");
+            string s = Console.ReadLine();
+            if (s == "a")
+            {
+                Console.Write("A = ");
+                int a = int.Parse(Console.ReadLine());
+                Console.Write("B = ");
+                int b = int.Parse(Console.ReadLine());
+                for (int i = a; i <= b; i++)
+                {
+                    Console.WriteLine("{0} {1}", i, sum(i));
+                }
+            }
+            else if (s == "b")
+            {
+                Console.Write("A = ");
+                int a = int.Parse(Console.ReadLine());
+                Console.Write("B = ");
+                int b = int.Parse(Console.ReadLine());
+                for (int i = a; i <= b; i++)
+                {
+                    if (sum(i) % 3 == 0)
+                    {
+                        Console.Write("{0} ", i);
+                    }
+                   
+                }
+            }
+            else if (s == "c")
+            {
+                Console.Write("A = ");
+                int a = int.Parse(Console.ReadLine());
+                Console.Write("B = ");
+                int b = int.Parse(Console.ReadLine());
+                for (int i = a; i <= b; i++)
+                {
+                    if (sum(i) == 2)
+                    {
+                        Console.Write("{0} ", i);
+                    }
+
+                }
+            }
+            else if (s == "d")
+            {
+                Console.Write("A = ");
+                int a = int.Parse(Console.ReadLine());
+                Console.Write("B = ");
+                int b = int.Parse(Console.ReadLine());
+                for (int i = a + 1; i <= b; i++)
+                {
+                    if (sum(i) == sum(b))
+                    {
+                        Console.Write("{0} ", i);
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+}
