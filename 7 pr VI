@@ -1,0 +1,75 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        // ступенчатый массив, тк изменяется кол-во столбцов
+        static void Print(int[][] a)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < a[i].Length; j++)
+                {
+                    Console.Write("{0}\t", a[i][j]);
+                }
+                Console.WriteLine();
+            }
+
+        }
+        static void Input(out int[][] a)
+        {
+            Random rnd = new Random();
+            Console.Write("n = ");
+            int n = int.Parse(Console.ReadLine());
+            a = new int[n][];
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = new int[n];
+                for (int j = 0; j < a[i].Length; j++)
+                {
+                    a[i][j] = rnd.Next(-10, 10);
+                }
+            }
+        }
+        static void Delete(int[][] a, int jj)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                int[] mas = new int[a[i].Length - 1];
+                for (int j = 0; j < jj; j++)
+                {
+                    mas[j] = a[i][j];
+                }
+
+                for (int j = jj; j < a[i].Length - 1; j++)
+                {
+                    mas[j] = a[i][j + 1];
+                }
+                a[i] = mas;
+            }
+
+        }
+        static void Find(int[][] a)
+        {
+            for (int j = 0; j < a[0].Length; j++)
+            {
+                if (a[0][j] > a[a.Length - 1][j]) { Delete(a, j); j--; };     
+            }
+        }
+
+
+
+        static void Main()
+        {
+            int[][] a;
+            Input(out a);
+            Console.WriteLine("Исходный массив:");
+            Print(a);
+            Find(a);
+            Console.WriteLine("Измененный массив:");
+            Print(a);
+        }
+    }
+
+}
