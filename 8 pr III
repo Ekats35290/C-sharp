@@ -1,0 +1,24 @@
+using System;
+using System.Diagnostics;
+namespace Example
+{
+    class Program
+    {
+        static void Main()
+        {
+            string text = Console.ReadLine();
+            string[] parts = text.Split(); 
+            for (int i = 0; i < parts.Length; i++)
+            {
+                if (parts[i].Length > 2) { continue; }
+                if (parts[i].Length == 1) { parts[i] = "\b"; }
+                else if (!Char.IsLetter(parts[i][1])) { parts[i] = "\b" + parts[i][1]; }
+            }
+            string whole = String.Join(" ", parts);
+            Console.WriteLine("Результат: ");
+            Console.WriteLine(whole);
+        }
+
+
+    }
+}
