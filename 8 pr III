@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 namespace Example
 {
-    class Program
+    class Program // неэффективно по памяти
     {
         static void Main()
         {
@@ -17,6 +17,43 @@ namespace Example
             string whole = String.Join(" ", parts);
             Console.WriteLine("Результат: ");
             Console.WriteLine(whole);
+        }
+
+
+    }
+}
+
+using System;
+using System.Diagnostics;
+using System.Text;
+namespace Example
+{
+    class Program
+    {
+        static void Main()
+        {
+            StringBuilder text = new StringBuilder(Console.ReadLine());
+            int len = 0;
+            bool f = false;
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] == ' ')
+                {
+                    if (len > 1) { len = 0; f = false; continue; }
+                    if (f) { text[i - 2] = '\b'; }
+                    else { text[i - 1] = '\b'; }
+                    len = 0;
+                    f = false;
+                }
+                else
+                {
+                    if (!Char.IsLetter(text[i])) { f = true; continue; }
+                    len++;
+                }
+                
+            }
+            Console.WriteLine("Результат: ");
+            Console.WriteLine(text);
         }
 
 
